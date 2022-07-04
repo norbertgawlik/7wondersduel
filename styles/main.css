@@ -84,3 +84,18 @@
   justify-content: center;
   align-items: center;
 }
+#cards-board .row {
+  display: flex;
+  justify-content: center;
+}
+#cards-board .row .card {
+  width: 50px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 5px;
+  background: gray;
+}
+#cards-board .row:not(:first-child) {
+  margin-top: -55px;
+}

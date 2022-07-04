@@ -87,3 +87,21 @@
         }
     }
 }
+
+#cards-board{
+    .row{
+        display: flex;
+        justify-content: center;
+        .card{
+            width: 50px;
+            height: 100px;
+            border:1px solid black;
+            border-radius:8px;
+            margin:5px;
+            background:gray;
+        }
+        &:not(:first-child){
+            margin-top:-55px;
+        }
+    }
+}

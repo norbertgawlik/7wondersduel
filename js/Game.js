@@ -2,10 +2,33 @@ import { Player } from "./Player.js";
 class Game{
     constructor(){
         this.cards = {};
-        this.player1 = new Player("Gracz1");
-        this.player2 = new Player("Gracz2");
         this.configCards = {
-            'age1' : [2,3,4,5,6]
+            'age1' : {
+                'count' : 20,
+                'arrangement' : [6,5,4,3,2],
+                'priority' : {
+                    1 : [],
+                    2 : [],
+                    3 : [1],
+                    4 : [1,2],
+                    5 : [2],
+                    6 : [3],
+                    7 : [3,4],
+                    8 : [4,5],
+                    9 : [5],
+                    10 : [6],
+                    11 : [6,7],
+                    12 : [7,8],
+                    13 : [8,9],
+                    14 : [9],
+                    15 : [10],
+                    16 : [10,11],
+                    17 : [11,12],
+                    18 : [12,13],
+                    19 : [13,14],
+                    20 : [14]
+                }
+            }
         }
     }
 
@@ -28,37 +51,31 @@ class Game{
             let counterCards = 20;
             const cards = this.drawCards(this.cards.age1,20);
             const config = this.configCards[age];
-            console.log(config.length);
-            for(let i=0;i<config.length;i++){
-                const row = document.createElement('div');
-                row.classList.add('row');
-                row.classList.add('center');
-                wrap.appendChild(row);
-                for(let j=0;j<config[i];j++){
-                    const card = document.createElement('div');
-                    card.classList.add('card');
-
-                    row.appendChild(card);
-
-                    if(config[i][j] != 0){
-                        console.log(cards[counterCards-1]);
-                        card.setAttribute('data-cardboard-id',counterCards-1);
-                        card.setAttribute('data-color',cards[counterCards-1].color);
-                        card.setAttribute('data-type',cards[counterCards-1].type);
-                        const name = document.createElement('span');
-                        name.classList.add('name');
-                        name.innerHTML = cards[counterCards-1].name;
-                        card.appendChild(name);
-                        counterCards--;
-                    }
-                }
-
-            }
+            console.log(cards);
+            this.generateCards(cards,config);
         }
     }
     drawCards(set,max){
         const shuffled = set.sort(() => 0.5 - Math.random());
         return shuffled.slice(0,max);
+    }
+
+    generateCards(cards,config){
+        const wrap = document.querySelector('#cards-board');
+        let counter = config.count;
+        for(let i=0;i<config.arrangement.length;i++){
+            const row = document.createElement('div');
+            row.classList.add('row');
+            wrap.appendChild(row);
+            for(let j=0;j<config.arrangement[i];j++){
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.setAttribute('data-id',counter);
+                card.innerHTML = `<span class="id">${counter}</span>`
+                row.appendChild(card);
+                counter--;
+            }
+        }
     }
 }
 
@@ -66,7 +83,3 @@ const newGame = new Game();
 document.addEventListener('DOMContentLoaded',()=>{
     newGame.init();
 })
-
-
-/* */
-/* konfi kart talii */
