@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+.wrap #board {
+  display: flex;
+}
+.wrap #board .left-board {
+  display: flex;
+  flex-direction: column;
+}
+.wrap #board .left-board .avatar-board {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+.wrap #board .left-board .military-board {
+  background: #a31010;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+.wrap #board .left-board .military-board .token {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap #board .center-board {
+  display: flex;
+  flex-direction: column;
+}
+.wrap #board .center-board .tokens-board {
+  display: flex;
+  height: 50px;
+  border: 1px solid black;
+  background: #795548;
+}
+.wrap #board .center-board .tokens-board .token {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap #board .center-board .player-cards-board {
+  flex-grow: 1;
+  min-width: 500px;
+  background: #fffce1;
+}
+.wrap #board .right-board {
+  display: flex;
+  flex-direction: column;
+}
+.wrap #board .right-board .moneys-board {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+.wrap #board .right-board .science-tokens-board {
+  background: green;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  box-sizing: border-box;
+  align-items: center;
+}
+.wrap #board .right-board .science-tokens-board .token {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

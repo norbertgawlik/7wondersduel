@@ -1,0 +1,887 @@
+{
+    "age1":[
+        {
+            "id" : 100,
+            "name" : "Wycinka",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 1,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 101,
+            "name" : "Skład drewna",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 1,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 1,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 102,
+            "name" : "Kamieniołom",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 1,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 103,
+            "name" : "Skład kamienia",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 1,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 1,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 104,
+            "name" : "Gliniarka",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 1,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 105,
+            "name" : "Złoża gliny",
+            "type" : "material",
+            "color" : "brown",
+            "cost" : {
+                "money" : 1,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 1,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 106,
+            "name" : "Wytwórnia papirusu",
+            "type" : "manufacture",
+            "color" : "gray",
+            "cost" : {
+                "money" : 1,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 107,
+            "name" : "Huta szkła",
+            "type" : "manufacture",
+            "color" : "gray",
+            "cost" : {
+                "money" : 1,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 1,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 108,
+            "name" : "Wieża strażnicza",
+            "type" : "military",
+            "color" : "red",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 109,
+            "name" : "Stajnie",
+            "type" : "military",
+            "color" : "red",
+            "cost" : {
+                "money" : 0,
+                "wood" : 1,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 1
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 110,
+            "name" : "Garnizon",
+            "type" : "military",
+            "color" : "red",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 1,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 2
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 111,
+            "name" : "Palisada",
+            "type" : "military",
+            "color" : "red",
+            "cost" : {
+                "money" : 2,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 3
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 112,
+            "name" : "Warsztat",
+            "type" : "science",
+            "color" : "green",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 1,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : true,
+                "id" : 1
+            }
+        },
+        {
+            "id" : 113,
+            "name" : "Apteka",
+            "type" : "science",
+            "color" : "green",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 1,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : true,
+                "id" : 2
+            }
+        },
+        {
+            "id" : 114,
+            "name" : "Skryptorium",
+            "type" : "science",
+            "color" : "green",
+            "cost" : {
+                "money" : 2,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 4
+            },
+            "science_symbol" : {
+                "status" : true,
+                "id" : 3
+            }
+        },
+        {
+            "id" : 115,
+            "name" : "Zielarnia",
+            "type" : "science",
+            "color" : "green",
+            "cost" : {
+                "money" : 2,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 5
+            },
+            "science_symbol" : {
+                "status" : true,
+                "id" : 4
+            }
+        },
+        {
+            "id" : 116,
+            "name" : "Teatr",
+            "type" : "civilian",
+            "color" : "blue",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 6
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 117,
+            "name" : "Ołtarz",
+            "type" : "civilian",
+            "color" : "blue",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 7
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 118,
+            "name" : "Łaźnie",
+            "type" : "civilian",
+            "color" : "blue",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 1,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 8
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 119,
+            "name" : "Tawerna",
+            "type" : "commercial",
+            "color" : "yellow",
+            "cost" : {
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 4,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : true,
+                "id" : 9
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 120,
+            "name" : "Magazyn drewna",
+            "type" : "commercial",
+            "color" : "yellow",
+            "cost" : {
+                "money" : 3,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : true,
+                "discount_stone" : false,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 121,
+            "name" : "Magazyn kamienia",
+            "type" : "commercial",
+            "color" : "yellow",
+            "cost" : {
+                "money" : 3,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : true,
+                "discount_clay" : false,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        },
+        {
+            "id" : 121,
+            "name" : "Magazyn gliny",
+            "type" : "commercial",
+            "color" : "yellow",
+            "cost" : {
+                "money" : 3,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "discount_wood" : false,
+                "discount_stone" : false,
+                "discount_clay" : true,
+                "discount_manufacture" : false
+            },
+            "symbol" : {
+                "status" : false,
+                "id" : null
+            },
+            "science_symbol" : {
+                "status" : false,
+                "id" : null
+            }
+        }
+    ],
+    "age2" : [
+
+    ],
+    "age3" : [
+
+    ],
+    "guilds" : [
+
+    ]
+}
