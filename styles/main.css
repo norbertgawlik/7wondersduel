@@ -4,8 +4,14 @@
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .wrap #board {
   display: flex;
+  margin: 0 20px 20px 0;
 }
 .wrap #board .left-board {
   display: flex;
@@ -89,12 +95,15 @@
   justify-content: center;
 }
 #cards-board .row .card {
-  width: 50px;
-  height: 100px;
+  width: 70px;
+  height: 110px;
   border: 1px solid black;
   border-radius: 8px;
   margin: 5px;
   background: gray;
+}
+#cards-board .row .card.accessible {
+  border: 5px solid green;
 }
 #cards-board .row:not(:first-child) {
   margin-top: -55px;

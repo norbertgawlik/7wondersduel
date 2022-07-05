@@ -18,8 +18,14 @@ export class Player{
             "theology" : false, /* kazdy cud "play again" */
             "urbanism" : false, /* 6$ + 4$ za kazdy free build */
         }
+
+        this.cards = [];
     }
 
+    addCards(card){
+        this.cards.push(card);
+    }
+    
     checkMoney(){
         console.log(`${this.name} - ${this.money}`);
     }
