@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.wrap{
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    #board{
+        display: flex;
+        margin:0 20px 20px 0;
+        .left-board{
+            display: flex;
+            flex-direction: column;
+            .avatar-board{
+                width:50px;
+                height: 50px;
+                border:1px solid black;
+            }
+            .military-board{
+                background:#a31010;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-grow:1;
+                .token{
+                    width:25px;
+                    height:25px;
+                    border-radius:100%;
+                    border:1px solid white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+        .center-board{
+            display: flex;
+            flex-direction: column;
+            .tokens-board{
+                display: flex;
+                height: 50px;
+                border:1px solid black;
+                background:#795548;
+                .token{
+                    width:25px;
+                    height:25px;
+                    border-radius:100%;
+                    border:1px solid white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .player-cards-board{
+                flex-grow: 1;
+                min-width: 500px;
+                background:#fffce1;
+            }
+        }
+        .right-board{
+            display: flex;
+            flex-direction: column;
+            .moneys-board{
+                width:50px;
+                height: 50px;
+                border:1px solid black;
+            }
+            .science-tokens-board{
+                background: green;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px 0;
+                box-sizing: border-box;
+                align-items: center;
+                .token{
+                    width:36px;
+                    height:36px;
+                    border-radius:100%;
+                    border:1px solid white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+#cards-board{
+    .row{
+        display: flex;
+        justify-content: center;
+        .card{
+            width: 70px;
+            height: 110px;
+            border:1px solid black;
+            border-radius:8px;
+            margin:5px;
+            background:gray;
+            &.accessible{
+                border:5px solid green;
+            }
+        }
+        &:not(:first-child){
+            margin-top:-55px;
+        }
+    }
+}

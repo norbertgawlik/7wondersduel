@@ -1,0 +1,20 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format" : "prettier --write app",
+    "start" : "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norbertgawlik/7wondresduel.git"
+  },
+  "author": "norbert g",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/norbertgawlik/7wondresduel/issues"
+  },
+  "homepage": "https://github.com/norbertgawlik/7wondresduel#readme"
+}
