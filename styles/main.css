@@ -105,6 +105,10 @@
 #cards-board .row .card.accessible {
   border: 5px solid green;
 }
+#cards-board .row .card.selected {
+  opacity: 0;
+  pointer-events: none;
+}
 #cards-board .row:not(:first-child) {
   margin-top: -55px;
 }
