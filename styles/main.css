@@ -8,6 +8,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 100vh;
+  background: #dfdfdf;
 }
 .wrap #board {
   display: flex;
@@ -38,6 +40,9 @@
   justify-content: center;
   align-items: center;
 }
+.wrap #board .left-board .military-board .token.active {
+  background: yellow;
+}
 .wrap #board .center-board {
   display: flex;
   flex-direction: column;
@@ -59,8 +64,17 @@
 }
 .wrap #board .center-board .player-cards-board {
   flex-grow: 1;
-  min-width: 500px;
+  min-width: 640px;
+  min-height: 215px;
   background: #fffce1;
+  display: flex;
+}
+.wrap #board .center-board .player-cards-board .player-cards-type .card {
+  width: 70px;
+  height: 90px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 5px;
 }
 .wrap #board .right-board {
   display: flex;
@@ -90,6 +104,44 @@
   justify-content: center;
   align-items: center;
 }
+.wrap #board .right-board .science-tokens-board .token.empty {
+  border: 1px solid yellow;
+}
+.card {
+  border: 1px solid black;
+}
+.card.brown {
+  background: #795548;
+}
+.card.gray {
+  background: gray;
+}
+.card.green {
+  background: #077007;
+}
+.card.yellow {
+  background: #edd20f;
+}
+.card.red {
+  background: #b91111;
+}
+.card.blue {
+  background: #007eff;
+}
+.card.hidden {
+  background: black;
+  background: url('/assets/cards/backcard.png') no-repeat center;
+}
+.card.accessible {
+  box-shadow: 0 0 2px 2px gold;
+}
+.card.emptyplace {
+  border: none;
+}
+.card.selected {
+  opacity: 0;
+  pointer-events: none;
+}
 #cards-board .row {
   display: flex;
   justify-content: center;
@@ -97,17 +149,8 @@
 #cards-board .row .card {
   width: 70px;
   height: 110px;
-  border: 1px solid black;
   border-radius: 8px;
   margin: 5px;
-  background: gray;
-}
-#cards-board .row .card.accessible {
-  border: 5px solid green;
-}
-#cards-board .row .card.selected {
-  opacity: 0;
-  pointer-events: none;
 }
 #cards-board .row:not(:first-child) {
   margin-top: -55px;
