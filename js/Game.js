@@ -56,11 +56,10 @@ class Game{
                 const card = document.createElement('div');
                 const showDetailsCard = config.arrangement[i].show;
                 if(arrangement[j] == 1){
-                    card.innerHTML = `<span class="id">${counter}</span>`;
+                    // card.innerHTML = `<span class="id">${counter}</span>`;
                     card.setAttribute('data-id',counter);
                     if(showDetailsCard){
-                        card.classList.add(configCard.color);
-                        // card.innerHTML = `<span class="id">${configCard.name}</span>`
+                        this.generateCardDetails(card,configCard);
                         if((Object.values(config.related))[counter].accessible){
                             card.classList.add('accessible');
                         }
@@ -76,6 +75,64 @@ class Game{
                 row.appendChild(card);
             }
         }
+    }
+
+    generateCardDetails(card,config){
+        const head = document.createElement('div');
+        card.classList.add(config.color);
+        head.classList.add('card-head');
+        card.appendChild(head);
+        
+        const effects_wrap = document.createElement('div');
+        effects_wrap.classList.add('effects-wrap');
+        head.appendChild(effects_wrap);
+
+        for(let [k,v] of Object.entries(config.effects)){
+            const hasEffect = v > 0;
+            const isSimpleEffect = k == "money" || k == "points";
+            const maxSize = isSimpleEffect ? 1 : v;
+            if(hasEffect){
+                for(let i=0;i<maxSize;i++){
+                    const effect = document.createElement('div');
+                    effect.classList.add('effect');
+                    effect.classList.add(k);
+                    if(isSimpleEffect){
+                        console.log(k,v);
+                        effect.innerHTML = v;
+                    }
+                    effects_wrap.appendChild(effect);
+                }
+            }
+        }
+        console.log(config);
+
+        const inner = document.createElement('div');
+        inner.classList.add('card-inner');
+        card.appendChild(inner);
+
+        const cost_wrap = document.createElement('div');
+        cost_wrap.classList.add('cost-wrap');
+        for(let [k,v] of Object.entries(config.cost)){
+            const hasCost = v > 0;
+            const isMoneyCost = k == "money";
+            const maxSize = isMoneyCost ? 1 : v;
+            if(hasCost){
+                for(let i=0;i<maxSize;i++){
+                    const cost = document.createElement('div');
+                    cost.classList.add('cost');
+                    cost.classList.add(k);
+                    if(isMoneyCost) cost.innerHTML = v;
+                    cost_wrap.appendChild(cost);
+                }
+            }
+        }
+
+        inner.appendChild(cost_wrap);
+        
+        const title = document.createElement('div');
+        title.classList.add('card-title');
+        title.innerHTML = config.name;
+        inner.appendChild(title);
     }
 
     pickCard(card,config,configCard,wrap){
@@ -115,8 +172,6 @@ class Game{
         card.classList.add('card');
         card.classList.add(cardConfig.color);
         board_row.appendChild(card);
-
-        // console.log(cardConfig);
     }
 
     finishPlayerQueue(){

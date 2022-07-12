@@ -112,26 +112,10 @@
 }
 
 .card{
-    border: 1px solid black;
-    &.brown{
-        background:#795548;
-    }
-    &.gray{
-        background:gray;
-    }
-    &.green{
-        background:#077007;
-    }
-    &.yellow{
-        background:#edd20f;
-    }
-    &.red{
-        background:#b91111;
-    }
-    &.blue{
-        background:#007eff;
-    }
+    display: flex;
+    flex-direction: column;
     &.hidden{
+        border:1px solid black;
         background:black;
         background: url('/assets/cards/backcard.png') no-repeat center;
     }
@@ -145,15 +129,170 @@
         opacity:0;
         pointer-events: none;
     }
+
+    &.brown{
+        .card-head{
+            background:#6a4c42;
+        }
+        .card-inner{
+            background:#ad9790;
+        }
+    }
+    &.gray{
+        .card-head{
+            background:#6e6767;
+        }
+        .card-inner{
+            background:#b3b3b3;
+        }
+    }
+    &.green{
+        .card-head{
+            background:#1c5a1c;
+        }
+        .card-inner{
+            background:#74a974;
+        }
+    }
+    &.yellow{
+        .card-head{
+            background:#c1a900;
+        }
+        .card-inner{
+            background:#fff18c;
+        }
+    }
+    &.red{
+        .card-head{
+            background:#7c1414;
+        }
+        .card-inner{
+            background:#cf9a9a;
+        }
+    }
+    &.blue{
+        .card-head{
+            background:#255a91;
+        }
+        .card-inner{
+            background:#8ba7c3;
+        }
+    }
+
+    .card-head{
+        height: 35px;
+    }
+    .card-inner{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        .cost-wrap{
+            flex-grow: 1;
+            padding: 4px;
+        }
+        .card-title{
+            font-size: 8px;
+            background: #e7e7e7;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            text-align: center;
+            font-weight: 700;
+            border-radius: 6px;
+            margin: 5px;
+            padding: 3px 5px;
+            line-height: 10px;
+        }
+    }
+    .effects-wrap{
+        padding: 6px 4px;
+        display: flex;
+        justify-content: center;
+    }
+    .cost,
+    .effect{
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        border:1px solid black;
+        border-radius:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &.money{
+            background: #efd651;
+            border: 2px solid #e7bb6b;
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+        }
+        &.points{
+            background: #60a8b9;
+            border: 2px solid #197a91;
+            font-size: 14px;
+            line-height: 14px;
+            font-weight: bold;
+            color: white;
+        }
+        &.military{
+            background:url('/assets/cards/swords.png') #b36262 no-repeat center;
+            background-size:12px;
+        }
+        &.glass{
+            background:url('/assets/cards/vial.png') #caf9ff no-repeat center;
+            background-size:18px;
+        }
+        &.papyrus{
+            background:url('/assets/cards/papyrus.png') #f9de8f no-repeat center;
+            background-size:14px;
+        }
+        &.stone,
+        &.discount_stone{
+            background:url('/assets/cards/granite.png') #d9d9d9 no-repeat center;
+            background-size:15px;
+        }
+        &.clay,
+        &.discount_clay{
+            background:url('/assets/cards/brick.png') #ffddaa no-repeat center;
+            background-size:15px;
+        }
+        &.wood,
+        &.discount_wood{
+            background:url('/assets/cards/wood.png') #58382d no-repeat center;
+            background-size:15px;
+        }
+        &.discount_wood,
+        &.discount_stone,
+        &.discount_clay{
+            position: relative;
+            &:after{
+                content:'1';
+                width: 12px;
+                height: 12px;
+                border: 1px solid black;
+                background: #ffeb3b;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                font-weight: bold;
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                border-radius: 100%;
+            }
+        }
+    }
 }
 #cards-board{
     .row{
         display: flex;
         justify-content: center;
         .card{
-            width: 70px;
-            height: 110px;
+            width: 85px;
+            height: 125px;
             border-radius:8px;
+            overflow: hidden;
             margin:5px;
         }
         &:not(:first-child){
