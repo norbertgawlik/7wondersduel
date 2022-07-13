@@ -97,14 +97,12 @@ class Game{
                     effect.classList.add('effect');
                     effect.classList.add(k);
                     if(isSimpleEffect){
-                        console.log(k,v);
                         effect.innerHTML = v;
                     }
                     effects_wrap.appendChild(effect);
                 }
             }
         }
-        console.log(config);
 
         const inner = document.createElement('div');
         inner.classList.add('card-inner');
@@ -136,8 +134,7 @@ class Game{
     }
 
     pickCard(card,config,configCard,wrap){
-        // console.log(card);
-        card.addEventListener('click',()=>{
+        card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
             const isAvailableCard = config.related[id].accessible;
                 if(isAvailableCard){
@@ -145,23 +142,10 @@ class Game{
                     card.classList.add('selected');
 
                     this.updateAccessibleCards(wrap,config);
-                    /* dodajemy karte do gracza */
-                    // console.log(configCard);
                     this.players[this.activePlayer].addCard(configCard);
-                    // console.log(this.players[this.activePlayer].cards);
-                    /* aktualizujemy moce */
-
-                    /* aktualizuemy plansze */
                     this.renderPlayerCardsBoard(configCard);
-                        /* zmieniamy active player */
                     this.finishPlayerQueue();
-
-                    }else{
-                        console.log('nie mozna wybrac');
                     }
-                    // console.log(isAvailableCard);
-                    // this.player1.checkMoney();
-                    // this.activePlayer == 1 ? this.player1()
                 })
     }
 
@@ -192,10 +176,11 @@ class Game{
                 _config.related[id].accessible = true;
                 e.classList.add('accessible');
                 e.classList.add(_config.cards[id].color);
-                e.classList.remove('hidden');
+                if(e.classList.contains('hidden')){
+                    this.generateCardDetails(e,_config.cards[id]);
+                    e.classList.remove('hidden');
+                }
             }
-
-            // console.log(config[id]);
         })
     }
     checkAvailableCard(id,config){
