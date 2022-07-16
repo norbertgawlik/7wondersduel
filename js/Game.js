@@ -39,6 +39,7 @@ class Game{
             this.generateCards(config,wrap);
         }
     }
+
     drawCards(set,max){
         const shuffled = set.sort(() => 0.5 - Math.random());
         return shuffled.slice(0,max);
@@ -56,7 +57,6 @@ class Game{
                 const card = document.createElement('div');
                 const showDetailsCard = config.arrangement[i].show;
                 if(arrangement[j] == 1){
-                    // card.innerHTML = `<span class="id">${counter}</span>`;
                     card.setAttribute('data-id',counter);
                     if(showDetailsCard){
                         this.generateCardDetails(card,configCard);
@@ -78,6 +78,7 @@ class Game{
     }
 
     generateCardDetails(card,config){
+        // console.log(config);
         const head = document.createElement('div');
         card.classList.add(config.color);
         head.classList.add('card-head');
@@ -87,6 +88,7 @@ class Game{
         effects_wrap.classList.add('effects-wrap');
         head.appendChild(effects_wrap);
 
+        /* effects */
         for(let [k,v] of Object.entries(config.effects)){
             const hasEffect = v > 0;
             const isSimpleEffect = k == "money" || k == "points";
@@ -102,6 +104,15 @@ class Game{
                     effects_wrap.appendChild(effect);
                 }
             }
+        }
+
+        /* science */
+        if(config.science_symbol.status){
+            const science_symbol = document.createElement('div');
+            science_symbol.classList.add('science-symbol');
+            science_symbol.classList.add('effect')
+            science_symbol.innerHTML = `s${config.science_symbol.id}`;
+            effects_wrap.appendChild(science_symbol);
         }
 
         const inner = document.createElement('div');
@@ -124,12 +135,20 @@ class Game{
                 }
             }
         }
-
         inner.appendChild(cost_wrap);
-        
+
+        /* symbol */
+        if(config.free_symbol.status){
+            const free_symbol = document.createElement('div');
+            free_symbol.classList.add('free-symbol');
+            free_symbol.innerHTML = `<span>s${config.free_symbol.id}</span>`;
+            
+            config.free_symbol.position == "top" ? effects_wrap.appendChild(free_symbol) : inner.appendChild(free_symbol);
+        }
+
         const title = document.createElement('div');
         title.classList.add('card-title');
-        title.innerHTML = config.name;
+        title.innerHTML = `<span>${config.name}</span>`;
         inner.appendChild(title);
     }
 
@@ -137,28 +156,74 @@ class Game{
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
             const isAvailableCard = config.related[id].accessible;
-                if(isAvailableCard){
+            const active_player = this.players[this.activePlayer];
+            if(isAvailableCard){
+                const {cost,isEnough} = this.checkCardCost(card,configCard,active_player);
+                console.log(`cardcost: ${cost}`);
+                console.log(`isEnough: ${isEnough}`);
+
+                if(isEnough){
+                    console.log('canbuy!');
+                    /* player*/
+                    active_player.addCard(configCard);
+                    /* this.updatePlayerPowers() */
+                    this.finishPlayerTour();
+
+                    /* board */
                     config.related[id].selected = true;
                     card.classList.add('selected');
-
                     this.updateAccessibleCards(wrap,config);
-                    this.players[this.activePlayer].addCard(configCard);
                     this.renderPlayerCardsBoard(configCard);
-                    this.finishPlayerQueue();
+                }else{
+                    console.log("cant buy!");
+                }
+            }
+        })
+    }
+
+    checkCardCost(card,configCard,player){
+        let cost = 0,
+            isEnough = false;
+
+        for(let [k,v] of Object.entries(configCard.cost)){
+            // console.log(k,v);
+            if(k == "money"){
+                cost+=v;
+            }else{
+                if(v != 0){
+                    /* czy gracz ma surowiec */
+                    console.log(player);
+                    const difference = player[k] - v;
+                    if(difference < 0){
+                        const notEnoughCount = difference * (-1);
+                        const secondPlayerConfig = this.activePlayer == 0 ? this.players[1] : this.players[0];
+                        const secondPlayerCount = secondPlayerConfig[k];
+                        const playerHasDicount = player.discounts[k];
+                        console.log("----");
+                        console.log(player);
+                        console.log(`not enough material ${k} in count: ${notEnoughCount}`);
+                        console.log(`enemy has material count: ${secondPlayerCount}`);
+                        console.log(`active player has material discount: ${playerHasDicount}`);
+                        console.log("----");
+                        if(playerHasDicount){
+                            cost += notEnoughCount;
+                        }else{
+                            cost += (notEnoughCount*(2 + secondPlayerCount))
+                        }
                     }
-                })
+                }
+            }
+        }
+        if(player.money >= cost) isEnough = true;
+        return {isEnough,cost};
     }
 
-    renderPlayerCardsBoard(cardConfig){
-        const board = document.querySelector(`.player-cards-board.player${this.activePlayer}`);
-        const board_row = board.querySelector(`.${cardConfig.type}`);
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.classList.add(cardConfig.color);
-        board_row.appendChild(card);
+    loadCardCostValue(){
+        let val = 0;
+        return val;
     }
 
-    finishPlayerQueue(){
+    finishPlayerTour(){
         this.activePlayer == 0 ? this.activePlayer = 1 : this.activePlayer = 0;
     }
 
@@ -190,9 +255,17 @@ class Game{
             if(!config.related[e].selected) isAvailable = false;
         })
         return isAvailable;
-        // console.log(cards);
-        // for(let i=0;i<con)
     }
+
+    renderPlayerCardsBoard(cardConfig){
+        const board = document.querySelector(`.player-cards-board.player${this.activePlayer}`);
+        const board_row = board.querySelector(`.${cardConfig.type}`);
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add(cardConfig.color);
+        board_row.appendChild(card);
+    }
+
 }
 
 const newGame = new Game();

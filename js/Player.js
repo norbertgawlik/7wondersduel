@@ -9,7 +9,13 @@ export class Player{
         this.clay = 0;
         this.papyrus = 0;
         this.glass = 0;
-        
+        this.discounts = {
+            "wood" : false,
+            "stone" : false,
+            "clay" : false,
+            "glass" : false,
+            "papyrus" : false
+        }
         this.tokens = {
             "count" : 0,
             "agriculture" : false, /* 6$ + 4pkt */
@@ -25,6 +31,9 @@ export class Player{
         }
 
         this.cards = [];
+        this.science_symbol = [];
+        this.free_symbol = [];
+
     }
 
     addCard(card){
