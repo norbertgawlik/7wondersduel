@@ -16,6 +16,7 @@ export class Player{
             "glass" : false,
             "papyrus" : false
         }
+        
         this.tokens = {
             "count" : 0,
             "agriculture" : false, /* 6$ + 4pkt */

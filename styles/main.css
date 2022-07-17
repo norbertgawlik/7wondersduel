@@ -110,6 +110,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .card.hidden {
   border: 1px solid black;
@@ -312,6 +313,31 @@
   top: -4px;
   left: -4px;
   border-radius: 100%;
+}
+.card .card-menu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  display: none;
+}
+.card .card-menu .btn {
+  width: 50%;
+  text-align: center;
+  padding: 10px 3px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.card .card-menu .btn.sell {
+  background: #ffdac0;
+}
+.card .card-menu .btn.buy {
+  background: gold;
+}
+.card.accessible .card-menu.active {
+  display: flex;
 }
 #cards-board .row {
   display: flex;

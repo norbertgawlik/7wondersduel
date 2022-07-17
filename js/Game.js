@@ -59,7 +59,7 @@ class Game{
                 if(arrangement[j] == 1){
                     card.setAttribute('data-id',counter);
                     if(showDetailsCard){
-                        this.generateCardDetails(card,configCard);
+                        this.generateCardDetails(card,config,configCard,wrap);
                         if((Object.values(config.related))[counter].accessible){
                             card.classList.add('accessible');
                         }
@@ -67,7 +67,9 @@ class Game{
                         card.classList.add("hidden");
                     }
                     counter--;
-                    this.pickCard(card,config,configCard,wrap);
+                    /* generate card menu */
+
+                    // this.pickCard(card,config,configCard,wrap);
                 }else{
                     card.classList.add("emptyplace");
                 }
@@ -77,10 +79,11 @@ class Game{
         }
     }
 
-    generateCardDetails(card,config){
-        // console.log(config);
+    generateCardDetails(card,config,configCard,wrap){
+        console.log(config);
         const head = document.createElement('div');
-        card.classList.add(config.color);
+        console.log(configCard);
+        card.classList.add(configCard.color);
         head.classList.add('card-head');
         card.appendChild(head);
         
@@ -89,7 +92,7 @@ class Game{
         head.appendChild(effects_wrap);
 
         /* effects */
-        for(let [k,v] of Object.entries(config.effects)){
+        for(let [k,v] of Object.entries(configCard.effects)){
             const hasEffect = v > 0;
             const isSimpleEffect = k == "money" || k == "points";
             const maxSize = isSimpleEffect ? 1 : v;
@@ -107,11 +110,11 @@ class Game{
         }
 
         /* science */
-        if(config.science_symbol.status){
+        if(configCard.science_symbol.status){
             const science_symbol = document.createElement('div');
             science_symbol.classList.add('science-symbol');
             science_symbol.classList.add('effect')
-            science_symbol.innerHTML = `s${config.science_symbol.id}`;
+            science_symbol.innerHTML = `s${configCard.science_symbol.id}`;
             effects_wrap.appendChild(science_symbol);
         }
 
@@ -121,7 +124,7 @@ class Game{
 
         const cost_wrap = document.createElement('div');
         cost_wrap.classList.add('cost-wrap');
-        for(let [k,v] of Object.entries(config.cost)){
+        for(let [k,v] of Object.entries(configCard.cost)){
             const hasCost = v > 0;
             const isMoneyCost = k == "money";
             const maxSize = isMoneyCost ? 1 : v;
@@ -138,22 +141,56 @@ class Game{
         inner.appendChild(cost_wrap);
 
         /* symbol */
-        if(config.free_symbol.status){
+        if(configCard.free_symbol.status){
             const free_symbol = document.createElement('div');
             free_symbol.classList.add('free-symbol');
-            free_symbol.innerHTML = `<span>s${config.free_symbol.id}</span>`;
+            free_symbol.innerHTML = `<span>s${configCard.free_symbol.id}</span>`;
             
-            config.free_symbol.position == "top" ? effects_wrap.appendChild(free_symbol) : inner.appendChild(free_symbol);
+            configCard.free_symbol.position == "top" ? effects_wrap.appendChild(free_symbol) : inner.appendChild(free_symbol);
         }
 
         const title = document.createElement('div');
         title.classList.add('card-title');
-        title.innerHTML = `<span>${config.name}</span>`;
+        title.innerHTML = `<span>${configCard.name}</span>`;
         inner.appendChild(title);
+
+        this.generateCardMenu(card,config,configCard,wrap);
     }
 
-    pickCard(card,config,configCard,wrap){
-        card.addEventListener('click', () => {
+    generateCardMenu(card,config,configCard,wrap){
+        const cardMenu = document.createElement('div');
+        cardMenu.classList.add('card-menu');
+        
+        const pick = document.createElement('div');
+        pick.classList.add('btn');
+        pick.classList.add('buy');
+        pick.innerHTML = "BUY";
+
+        const sell = document.createElement('div');
+        sell.classList.add('btn');
+        sell.classList.add('sell');
+        sell.innerHTML = "SELL";
+
+        cardMenu.appendChild(pick);
+        cardMenu.appendChild(sell);
+        card.appendChild(cardMenu);
+
+
+        card.addEventListener('click',()=>{
+            if(!cardMenu.classList.contains('active')){
+                const cards = [...document.querySelectorAll('#cards-board .card .card-menu')];
+                cards.forEach((e)=>{
+                    e.classList.remove('active');
+                })
+            }
+            cardMenu.classList.toggle('active');
+        })
+
+        this.pickCard(pick,card,config,configCard,wrap);
+    }
+
+    pickCard(target,card,config,configCard,wrap){
+        target.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
             const isAvailableCard = config.related[id].accessible;
             const active_player = this.players[this.activePlayer];
@@ -218,11 +255,6 @@ class Game{
         return {isEnough,cost};
     }
 
-    loadCardCostValue(){
-        let val = 0;
-        return val;
-    }
-
     finishPlayerTour(){
         this.activePlayer == 0 ? this.activePlayer = 1 : this.activePlayer = 0;
     }
@@ -242,7 +274,7 @@ class Game{
                 e.classList.add('accessible');
                 e.classList.add(_config.cards[id].color);
                 if(e.classList.contains('hidden')){
-                    this.generateCardDetails(e,_config.cards[id]);
+                    this.generateCardDetails(e,_config,_config.cards[id],wrap);
                     e.classList.remove('hidden');
                 }
             }
