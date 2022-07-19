@@ -339,6 +339,27 @@
 .card.accessible .card-menu.active {
   display: flex;
 }
+.card .money-info-bar.loaded .money-info {
+  position: absolute;
+  top: -8px;
+  width: 25px;
+  height: 25px;
+  background: gray;
+  border: 1px solid black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .money-info-bar.loaded .money-info.buy {
+  left: -8px;
+}
+.card .money-info-bar.loaded .money-info.buy.canbuy {
+  background: #66ae66;
+}
+.card .money-info-bar.loaded .money-info.buy.cantbuy {
+  background: red;
+}
 #cards-board .row {
   display: flex;
   justify-content: center;
@@ -347,7 +368,6 @@
   width: 85px;
   height: 125px;
   border-radius: 8px;
-  overflow: hidden;
   margin: 5px;
 }
 #cards-board .row:not(:first-child) {

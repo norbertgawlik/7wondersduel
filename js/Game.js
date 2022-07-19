@@ -3,12 +3,20 @@ class Game{
     constructor(){
         this.cards = {};
         this.activePlayer = 0;
-        this.players = [new Player("Player1"),new Player("Player2")];
+        this.players = [];
         this.configCards = {};
     }
 
     init(){
+        /* tu bedzie start gry: menu gry: imiona graczy itd */
+        this.createPlayer('Player1');
+        this.createPlayer('Player1');
         this.loadCards('js/cards.json');
+    }
+
+    createPlayer(name){
+        const player = new Player(name);
+        this.players.push(player);
     }
 
     loadCards(cards){
@@ -59,17 +67,16 @@ class Game{
                 if(arrangement[j] == 1){
                     card.setAttribute('data-id',counter);
                     if(showDetailsCard){
-                        this.generateCardDetails(card,config,configCard,wrap);
                         if((Object.values(config.related))[counter].accessible){
                             card.classList.add('accessible');
+                            this.generateCardDetails(card,config,configCard,wrap,true);
+                        }else{
+                            this.generateCardDetails(card,config,configCard,wrap,false);
                         }
                     }else{
                         card.classList.add("hidden");
                     }
                     counter--;
-                    /* generate card menu */
-
-                    // this.pickCard(card,config,configCard,wrap);
                 }else{
                     card.classList.add("emptyplace");
                 }
@@ -79,10 +86,9 @@ class Game{
         }
     }
 
-    generateCardDetails(card,config,configCard,wrap){
-        console.log(config);
+    generateCardDetails(card,config,configCard,wrap,showCost){
+        // console.log(config);
         const head = document.createElement('div');
-        console.log(configCard);
         card.classList.add(configCard.color);
         head.classList.add('card-head');
         card.appendChild(head);
@@ -154,6 +160,22 @@ class Game{
         title.innerHTML = `<span>${configCard.name}</span>`;
         inner.appendChild(title);
 
+        /* cost info */
+        const moneyInfoBar = document.createElement('div');
+        moneyInfoBar.classList.add('money-info-bar');
+        card.appendChild(moneyInfoBar);
+
+        const buyInfo = document.createElement('div');
+        buyInfo.classList.add('money-info');
+        buyInfo.classList.add('buy');
+        moneyInfoBar.appendChild(buyInfo);
+
+        // const sellInfo = document.createElement('div');
+        // sellInfo.classList.add('money-info');
+        // sellInfo.classList.add('sell');
+        // moneyInfoBar.appendChild(sellInfo);
+
+        if(showCost) this.generateCardCost(card,configCard);
         this.generateCardMenu(card,config,configCard,wrap);
     }
 
@@ -195,7 +217,7 @@ class Game{
             const isAvailableCard = config.related[id].accessible;
             const active_player = this.players[this.activePlayer];
             if(isAvailableCard){
-                const {cost,isEnough} = this.checkCardCost(card,configCard,active_player);
+                const {cost,isEnough} = this.checkCardCost(configCard,active_player);
                 console.log(`cardcost: ${cost}`);
                 console.log(`isEnough: ${isEnough}`);
 
@@ -218,12 +240,11 @@ class Game{
         })
     }
 
-    checkCardCost(card,configCard,player){
+    checkCardCost(configCard,player){
         let cost = 0,
             isEnough = false;
 
         for(let [k,v] of Object.entries(configCard.cost)){
-            // console.log(k,v);
             if(k == "money"){
                 cost+=v;
             }else{
@@ -274,12 +295,16 @@ class Game{
                 e.classList.add('accessible');
                 e.classList.add(_config.cards[id].color);
                 if(e.classList.contains('hidden')){
-                    this.generateCardDetails(e,_config,_config.cards[id],wrap);
+                    this.generateCardDetails(e,_config,_config.cards[id],wrap,true);
                     e.classList.remove('hidden');
                 }
+
+                if(!e.classList.contains('selected')) this.generateCardCost(e,_config.cards[id]);
             }
+
         })
     }
+
     checkAvailableCard(id,config){
         const related = config.related[id].related;
         let isAvailable = true;
@@ -289,15 +314,26 @@ class Game{
         return isAvailable;
     }
 
-    renderPlayerCardsBoard(cardConfig){
-        const board = document.querySelector(`.player-cards-board.player${this.activePlayer}`);
-        const board_row = board.querySelector(`.${cardConfig.type}`);
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.classList.add(cardConfig.color);
-        board_row.appendChild(card);
+    generateCardCost(card,configCard){
+        const active_player = this.players[this.activePlayer];
+        const {cost,isEnough} = this.checkCardCost(configCard,active_player);
+        
+        const wrap = card.querySelector('.money-info-bar');
+        const cost_wrap = wrap.querySelector('.buy');
+        cost_wrap.innerHTML = `${cost}$`;
+        cost_wrap.classList.add('canbuy');
+        wrap.classList.add('loaded');
+        // console.log(cost,isEnough);
     }
 
+    renderPlayerCardsBoard(configCard){
+        const board = document.querySelector(`.player-cards-board.player${this.activePlayer}`);
+        const board_row = board.querySelector(`.${configCard.type}`);
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add(configCard.color);
+        board_row.appendChild(card);
+    }
 }
 
 const newGame = new Game();

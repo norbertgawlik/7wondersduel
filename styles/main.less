@@ -341,6 +341,35 @@
             display: flex;
         }
     }
+
+    .money-info-bar{
+        &.loaded{
+            .money-info{
+                position: absolute;
+                top:-8px;
+                width: 25px;
+                height: 25px;
+                background:gray;
+                border:1px solid black;
+                border-radius:100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &.buy{
+                    left:-8px;
+                    &.canbuy{
+                        background:#66ae66;
+                    }
+                    &.cantbuy{
+                        background:red;
+                    }
+                }
+                // &.sell{
+                //     right:-5px;
+                // }
+            }
+        }
+    }
 }
 #cards-board{
     .row{
@@ -350,7 +379,6 @@
             width: 85px;
             height: 125px;
             border-radius:8px;
-            overflow: hidden;
             margin:5px;
         }
         &:not(:first-child){
