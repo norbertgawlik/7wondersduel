@@ -209,6 +209,19 @@ class Game{
         })
 
         this.pickCard(pick,card,config,configCard,wrap);
+        this.sellCard(sell,card,config,configCard,wrap);
+    }
+
+    sellCard(target,card,config,configCard,wrap){
+        target.addEventListener('click',()=>{
+            const id = card.getAttribute('data-id');
+            const active_player = this.players[this.activePlayer];
+            active_player.money +=2;
+            config.related[id].selected = true;
+            card.classList.add('selected');
+            this.finishPlayerTour();
+            this.updateAccessibleCards(wrap,config);
+        })
     }
 
     pickCard(target,card,config,configCard,wrap){
@@ -218,14 +231,9 @@ class Game{
             const active_player = this.players[this.activePlayer];
             if(isAvailableCard){
                 const {cost,isEnough} = this.checkCardCost(configCard,active_player);
-                console.log(`cardcost: ${cost}`);
-                console.log(`isEnough: ${isEnough}`);
-
                 if(isEnough){
-                    console.log('canbuy!');
-                    /* player*/
                     active_player.addCard(configCard);
-                    /* this.updatePlayerPowers() */
+                    this.updatePlayerPowers(active_player,cost,configCard);
                     this.finishPlayerTour();
 
                     /* board */
@@ -240,6 +248,14 @@ class Game{
         })
     }
 
+    updatePlayerPowers(active_player,cost,configCard){
+        console.log(this.players);
+        console.log(active_player);
+        console.log(cost);
+        console.log(configCard);
+        active_player.money -= cost;
+    }
+
     checkCardCost(configCard,player){
         let cost = 0,
             isEnough = false;
@@ -250,19 +266,19 @@ class Game{
             }else{
                 if(v != 0){
                     /* czy gracz ma surowiec */
-                    console.log(player);
+                    // console.log(player);
                     const difference = player[k] - v;
                     if(difference < 0){
                         const notEnoughCount = difference * (-1);
                         const secondPlayerConfig = this.activePlayer == 0 ? this.players[1] : this.players[0];
                         const secondPlayerCount = secondPlayerConfig[k];
                         const playerHasDicount = player.discounts[k];
-                        console.log("----");
-                        console.log(player);
-                        console.log(`not enough material ${k} in count: ${notEnoughCount}`);
-                        console.log(`enemy has material count: ${secondPlayerCount}`);
-                        console.log(`active player has material discount: ${playerHasDicount}`);
-                        console.log("----");
+                        // console.log("----");
+                        // console.log(player);
+                        // console.log(`not enough material ${k} in count: ${notEnoughCount}`);
+                        // console.log(`enemy has material count: ${secondPlayerCount}`);
+                        // console.log(`active player has material discount: ${playerHasDicount}`);
+                        // console.log("----");
                         if(playerHasDicount){
                             cost += notEnoughCount;
                         }else{
@@ -281,6 +297,7 @@ class Game{
     }
 
     updateAccessibleCards(wrap,_config){
+        console.log("test");
         const cardsDom = [...wrap.querySelectorAll('.card:not(.emptyplace)')];
 
         cardsDom.forEach( e => {
@@ -297,9 +314,11 @@ class Game{
                 if(e.classList.contains('hidden')){
                     this.generateCardDetails(e,_config,_config.cards[id],wrap,true);
                     e.classList.remove('hidden');
+                    
                 }
 
-                if(!e.classList.contains('selected')) this.generateCardCost(e,_config.cards[id]);
+                // if(!e.classList.contains('selected')) 
+                this.generateCardCost(e,_config.cards[id]);
             }
 
         })
@@ -320,7 +339,15 @@ class Game{
         
         const wrap = card.querySelector('.money-info-bar');
         const cost_wrap = wrap.querySelector('.buy');
+        if(isEnough){
+            cost_wrap.classList.remove('cantbuy');
+            cost_wrap.classList.add('canbuy');
+        }else{
+            cost_wrap.classList.add('cantbuy');
+            cost_wrap.classList.remove('canbuy');
+        }
         cost_wrap.innerHTML = `${cost}$`;
+        
         cost_wrap.classList.add('canbuy');
         wrap.classList.add('loaded');
         // console.log(cost,isEnough);
