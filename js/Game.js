@@ -1,84 +1,85 @@
+import Utils from "./Utils.js";
+
 class Game{
     constructor(){
         this.cards = {};
-        this.activePlayer = 0;
+        this.activePlayer = 1;
         this.players = [];
         this.configCards = {};
     }
 
-    init = {
-        generateSettingsWrap : () => {
-            const wrap = document.querySelector('#wrap');
-            const set_wrap = document.createElement('div');
-            set_wrap.setAttribute('id','settings-wrap');
-            wrap.appendChild(set_wrap);
+    generateSettingsWrap(){
+        const wrap = document.querySelector('#wrap');
+        const set_wrap = document.createElement('div');
+        set_wrap.setAttribute('id','settings-wrap');
+        wrap.appendChild(set_wrap);
 
-            const names_wrap = document.createElement('div');
-            names_wrap.classList.add('names-wrap');
-            set_wrap.appendChild(names_wrap);
-            console.log(this);
-            const player1Input = this.init.generatePlayersInput(names_wrap);
-            const player2Input = this.init.generatePlayersInput(names_wrap);
+        const names_wrap = document.createElement('div');
+        names_wrap.classList.add('names-wrap');
+        set_wrap.appendChild(names_wrap);
+        const names_wrap_title = document.createElement('p');
+        names_wrap_title.innerHTML = "Imiona graczy";
+        names_wrap.appendChild(names_wrap_title);
+        const player1Input = this.generatePlayersInput(names_wrap,'player1');
+        const player2Input = this.generatePlayersInput(names_wrap,'player2');
 
-            const options = document.createElement('div');
-            options.classList.add('options-wrap');
-            set_wrap.appendChild(options);
+        const options = document.createElement('div');
+        options.classList.add('options-wrap');
+        set_wrap.appendChild(options);
 
-            this.init.initStartGame(set_wrap,player1Input,player2Input);
-        },
-        generatePlayersInput : (names_wrap) => {
-            const name_wrap = document.createElement('div');
-            name_wrap.classList.add("name-wrap");
-            const input = document.createElement('input');
-            input.setAttribute('placeholder',"Imię");
-            name_wrap.appendChild(input);
-            names_wrap.appendChild(name_wrap);
+        this.initStartGame(set_wrap,player1Input,player2Input);
+    };
 
-            return input;
-        },
-        initStartGame : (set_wrap,player1Input,player2Input) => {
-            const button = document.createElement('button');
-            button.classList.add('start-game');
-            button.innerHTML = "Start";
-            set_wrap.appendChild(button);
-            button.addEventListener('click',()=>{
-                const player1InputIsEmpty = this.init.validate.isEmpty(player1Input);
-                const player2InputIsEmpty = this.init.validate.isEmpty(player2Input);
+    generatePlayersInput(names_wrap,player){
+        const name_wrap = document.createElement('div');
+        name_wrap.classList.add("name-wrap");
+        const input = document.createElement('input');
+        input.setAttribute('placeholder',"Imię");
+        name_wrap.appendChild(input);
+        names_wrap.appendChild(name_wrap);
 
-                if(!player1InputIsEmpty && !player2InputIsEmpty){
-                    this.init.savePlayersNames(player1Input,player2Input);
-                    this.generateBoard.init();
-                }else{
-                    window.alert("wprowadź imiona!");
-                }
-            })
-        },
-        
-        savePlayersNames : (player1Input,player2Input) => {
-            console.log(player1Input.value,player2Input.value);
-        },
+        console.log(Utils.getCookie("player1Name"));
+        const cookie = player == "player1" ? 
+                Utils.getCookie('player1Name') : 
+                Utils.getCookie('player2Name');
 
-        validate : {
-            isEmpty : (input) => {
-               return input.value.length == 0 ? true : false;
+        if(cookie.length != 0) input.value = cookie;
+        return input;
+    };
+
+    initStartGame(set_wrap, player1Input, player2Input){
+        const button = document.createElement('button');
+        button.classList.add('start-game');
+        button.innerHTML = "Start";
+        set_wrap.appendChild(button);
+        button.addEventListener('click', () =>{
+            const player1InputIsEmpty = Utils.isEmptyInput(player1Input);
+            const player2InputIsEmpty = Utils.isEmptyInput(player2Input);
+
+            if(!player1InputIsEmpty && !player2InputIsEmpty){
+                this.savePlayersNames(player1Input,player2Input);
+                this.generateBoard();
+            }else{
+                window.alert("wprowadź imiona!");
             }
-        }
+        })
+    };
+        
+    savePlayersNames(player1Input, player2Input){
+        console.log(player1Input.value,player2Input.value);
+        Utils.setCookie('player1Name',player1Input.value,30);
+        Utils.setCookie('player2Name',player2Input.value,30);
     }
 
-    generateBoard =  {
-        init : () =>{
-            this.generateBoard.generateBoardWrap();
-        },
-        generateBoardWrap : ()=>{
-            const wrap = document.querySelector("#board2");
-            console.log("generujemy plansze");
-        }
+    generateBoard(){
+        const wrap = document.querySelector("#board2");
+        console.log("generujemy plansze");
     }
 }
 
 const newGame = new Game();
 document.addEventListener('DOMContentLoaded',()=>{
-    newGame.init.generateSettingsWrap();
+    newGame.generateSettingsWrap();
 })
 
 // import { Player } from "./Player.js";
