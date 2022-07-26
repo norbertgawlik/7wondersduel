@@ -1,4 +1,5 @@
 import Utils from "./Utils.js";
+import Board from "./Board.js";
 
 class Game{
     constructor(){
@@ -6,6 +7,9 @@ class Game{
         this.activePlayer = 1;
         this.players = [];
         this.configCards = {};
+
+        this.utils = new Utils();
+        this.board = new Board();
     }
 
     generateSettingsWrap(){
@@ -38,10 +42,9 @@ class Game{
         name_wrap.appendChild(input);
         names_wrap.appendChild(name_wrap);
 
-        console.log(Utils.getCookie("player1Name"));
         const cookie = player == "player1" ? 
-                Utils.getCookie('player1Name') : 
-                Utils.getCookie('player2Name');
+                this.utils.getCookie('player1Name') : 
+                this.utils.getCookie('player2Name');
 
         if(cookie.length != 0) input.value = cookie;
         return input;
@@ -53,12 +56,12 @@ class Game{
         button.innerHTML = "Start";
         set_wrap.appendChild(button);
         button.addEventListener('click', () =>{
-            const player1InputIsEmpty = Utils.isEmptyInput(player1Input);
-            const player2InputIsEmpty = Utils.isEmptyInput(player2Input);
+            const player1InputIsEmpty = this.utils.isEmptyInput(player1Input);
+            const player2InputIsEmpty = this.utils.isEmptyInput(player2Input);
 
             if(!player1InputIsEmpty && !player2InputIsEmpty){
                 this.savePlayersNames(player1Input,player2Input);
-                this.generateBoard();
+                this.generateBoard(player1Input.value,player2Input.value);
             }else{
                 window.alert("wprowadź imiona!");
             }
@@ -66,14 +69,12 @@ class Game{
     };
         
     savePlayersNames(player1Input, player2Input){
-        console.log(player1Input.value,player2Input.value);
-        Utils.setCookie('player1Name',player1Input.value,30);
-        Utils.setCookie('player2Name',player2Input.value,30);
+        this.utils.setCookie('player1Name',player1Input.value,30);
+        this.utils.setCookie('player2Name',player2Input.value,30);
     }
 
-    generateBoard(){
-        const wrap = document.querySelector("#board2");
-        console.log("generujemy plansze");
+    generateBoard(playerName1,playerName2){
+        this.board.generateBoard(playerName1,playerName2);
     }
 }
 

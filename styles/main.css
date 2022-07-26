@@ -20,27 +20,32 @@
   height: 500px;
   background: red;
 }
-#wrap #board {
+#wrap #board,
+#wrap #board2 {
   display: flex;
   margin: 0 20px 20px 0;
 }
-#wrap #board .left-board {
+#wrap #board .left-board,
+#wrap #board2 .left-board {
   display: flex;
   flex-direction: column;
 }
-#wrap #board .left-board .avatar-board {
+#wrap #board .left-board .avatar-board,
+#wrap #board2 .left-board .avatar-board {
   width: 50px;
   height: 50px;
   border: 1px solid black;
 }
-#wrap #board .left-board .military-board {
+#wrap #board .left-board .military-board,
+#wrap #board2 .left-board .military-board {
   background: #a31010;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
 }
-#wrap #board .left-board .military-board .token {
+#wrap #board .left-board .military-board .token,
+#wrap #board2 .left-board .military-board .token {
   width: 25px;
   height: 25px;
   border-radius: 100%;
@@ -49,20 +54,24 @@
   justify-content: center;
   align-items: center;
 }
-#wrap #board .left-board .military-board .token.active {
+#wrap #board .left-board .military-board .token.active,
+#wrap #board2 .left-board .military-board .token.active {
   background: yellow;
 }
-#wrap #board .center-board {
+#wrap #board .center-board,
+#wrap #board2 .center-board {
   display: flex;
   flex-direction: column;
 }
-#wrap #board .center-board .tokens-board {
+#wrap #board .center-board .tokens-board,
+#wrap #board2 .center-board .tokens-board {
   display: flex;
   height: 50px;
   border: 1px solid black;
   background: #795548;
 }
-#wrap #board .center-board .tokens-board .token {
+#wrap #board .center-board .tokens-board .token,
+#wrap #board2 .center-board .tokens-board .token {
   width: 25px;
   height: 25px;
   border-radius: 100%;
@@ -71,30 +80,35 @@
   justify-content: center;
   align-items: center;
 }
-#wrap #board .center-board .player-cards-board {
+#wrap #board .center-board .player-cards-board,
+#wrap #board2 .center-board .player-cards-board {
   flex-grow: 1;
   min-width: 640px;
   min-height: 215px;
   background: #fffce1;
   display: flex;
 }
-#wrap #board .center-board .player-cards-board .player-cards-type .card {
+#wrap #board .center-board .player-cards-board .player-cards-type .card,
+#wrap #board2 .center-board .player-cards-board .player-cards-type .card {
   width: 70px;
   height: 90px;
   border: 1px solid black;
   border-radius: 8px;
   margin: 5px;
 }
-#wrap #board .right-board {
+#wrap #board .right-board,
+#wrap #board2 .right-board {
   display: flex;
   flex-direction: column;
 }
-#wrap #board .right-board .moneys-board {
+#wrap #board .right-board .moneys-board,
+#wrap #board2 .right-board .moneys-board {
   width: 50px;
   height: 50px;
   border: 1px solid black;
 }
-#wrap #board .right-board .science-tokens-board {
+#wrap #board .right-board .science-tokens-board,
+#wrap #board2 .right-board .science-tokens-board {
   background: green;
   flex-grow: 1;
   display: flex;
@@ -104,7 +118,8 @@
   box-sizing: border-box;
   align-items: center;
 }
-#wrap #board .right-board .science-tokens-board .token {
+#wrap #board .right-board .science-tokens-board .token,
+#wrap #board2 .right-board .science-tokens-board .token {
   width: 36px;
   height: 36px;
   border-radius: 100%;
@@ -113,7 +128,8 @@
   justify-content: center;
   align-items: center;
 }
-#wrap #board .right-board .science-tokens-board .token.empty {
+#wrap #board .right-board .science-tokens-board .token.empty,
+#wrap #board2 .right-board .science-tokens-board .token.empty {
   border: 1px solid yellow;
 }
 .card {

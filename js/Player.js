@@ -45,5 +45,4 @@ export class Player{
     checkMoney(){
         console.log(`${this.name} - ${this.money}`);
     }
-
 }
