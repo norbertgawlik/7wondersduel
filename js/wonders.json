@@ -1,0 +1,340 @@
+{
+    "wonders" : {
+        "zeus" : {
+            "name" : "Posąg Zeusa w Olimpii",
+            "cost" : {
+                "wood" : 1,
+                "stone" : 1,
+                "clay" : 1,
+                "papyrus" : 2,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : true,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "sfinks" : {
+            "name" : "Sfinks",
+            "cost" : {
+                "wood" : 0,
+                "stone" : 1,
+                "clay" : 1,
+                "papyrus" : 0,
+                "glass" : 2
+            },
+            "effects" : {
+                "points" : 6,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : true,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "maximus" : {
+            "name" : "Circus Maximus",
+            "cost" : {
+                "wood" : 1,
+                "stone" : 2,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 1,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : true,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "semiramida" : {
+            "name" : "Wiszące ogrody Semiramidy", 
+            "cost" : {
+                "wood" : 2,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 0,
+                "money" : 6,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : true,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "mauzoleum" : {
+            "name" : "Mauzoleum w Halikarnasie",
+            "cost" : {
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 2,
+                "papyrus" : 1,
+                "glass" : 2
+            },
+            "effects" : {
+                "points" : 2,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : true
+            }
+        },
+        "biblioteka" : {
+            "name" : "Biblioteka Aleksandryjska",
+            "cost" : {
+                "wood" : 3,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 4,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : true,
+                "pick_used_card" : false
+            }
+        },
+        "pireus" : {
+            "name" : "Pireus",
+            "cost" : {
+                "wood" : 2,
+                "stone" : 1,
+                "clay" : 1,
+                "papyrus" : 0,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 2,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 1,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : true,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "kolos" : {
+            "name" : "Kolos Rodyjski",
+            "cost" : {
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 3,
+                "papyrus" : 0,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 2,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "artemida" : {
+            "name" : "Świątynia Artemidy w Wefezie",
+            "cost" : {
+                "wood" : 1,
+                "stone" : 1,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 1
+            },
+            "effects" : {
+                "points" : 0,
+                "military" : 0,
+                "money" : 12,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : true,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "piramida" : {
+            "name" : "Piramida Cheopsa",
+            "cost" : {
+                "wood" : 0,
+                "stone" : 3,
+                "clay" : 0,
+                "papyrus" : 1,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 9,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "viaappia" : {
+            "name" : "Via Appia",
+            "cost" : {
+                "wood" : 0,
+                "stone" : 2,
+                "clay" : 2,
+                "papyrus" : 1,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 3,
+                "military" : 0,
+                "money" : 3,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 0,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 3,
+                "again_turn" : true,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        },
+        "latarnia" : {
+            "name" : "Latarnia Morksa na Faros",
+            "cost" : {
+                "wood" : 1,
+                "stone" : 1,
+                "clay" : 0,
+                "papyrus" : 2,
+                "glass" : 0
+            },
+            "effects" : {
+                "points" : 4,
+                "military" : 0,
+                "money" : 0,
+                "wood" : 0,
+                "stone" : 0,
+                "clay" : 0,
+                "papyrus" : 0,
+                "glass" : 0,
+                "material" : 1,
+                "manufacture" : 0,
+                "trash_material" : false,
+                "trash_manufacture" : false,
+                "trash_money" : 0,
+                "again_turn" : false,
+                "take_token" : false,
+                "pick_used_card" : false
+            }
+        }
+    }
+}

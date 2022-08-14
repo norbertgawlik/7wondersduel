@@ -39,6 +39,6 @@ export default class Board{
                 item.classList.add('start');
             }
             militaryBoard.appendChild(token);
-        }
+        }       
     }
 }
